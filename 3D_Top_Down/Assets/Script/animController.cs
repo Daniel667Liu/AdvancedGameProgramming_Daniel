@@ -5,24 +5,28 @@ using UnityEngine;
 public class animController : MonoBehaviour
 {
     [SerializeField]
-    private Animator animator;
+    private Animator robotAnimator;
     private Rigidbody rigidBody;
+    
+    
 
     private void Start()
     {
         rigidBody = GetComponentInChildren<Rigidbody>();//make sure there is only 1 rigidbody
+        Service.animController = this;
     }
 
     // Update is called once per frame
-    void Update()
+    public void UpdateManual()
     {
-        if (!(rigidBody.velocity.magnitude == 0))
+        if (Service.inputManager.inputVector.magnitude > 0)
         {
-            animator.SetBool("isRUnning", true);
+            robotAnimator.SetBool("isRunning", true);
         }
         else 
         {
-            animator.SetBool("isRunning", false);
+            robotAnimator.SetBool("isRunning", false);
         }
+        
     }
 }

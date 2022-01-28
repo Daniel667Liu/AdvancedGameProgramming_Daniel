@@ -7,7 +7,12 @@ public class inputManager : MonoBehaviour
     public Vector2 inputVector {  get; private set; }
     public Vector3 mousePosition { get; private set; }
     // Update is called once per frame
-    void Update()
+
+    void start()
+    {
+        Service.inputManager = this;
+    }
+    public void UpdateManual()
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");

@@ -7,7 +7,7 @@ public class playerController : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    private inputManager inputs;
+    
 
     [SerializeField]
     private float moveSpeed;
@@ -15,18 +15,18 @@ public class playerController : MonoBehaviour
 
     private void Awake()
     {
-        inputs = GetComponent<inputManager>();//get the input manager on awake the component
+       
     }
 
     void Start()
     {
-        
+        Service.playerController = this;
     }
 
     // Update is called once per frame
-    void Update()
+    public void UpdateManual()
     {
-        Vector3 moveVector = new Vector3(inputs.inputVector.x, 0f, inputs.inputVector.y);
+        Vector3 moveVector = new Vector3(Service.inputManager.inputVector.x, 0f, Service.inputManager.inputVector.y);
         
         playerMove(moveVector);
         playerLookAt();
@@ -34,7 +34,7 @@ public class playerController : MonoBehaviour
 
     private void playerLookAt()
     {
-        Ray ray = Camera.main.ScreenPointToRay(inputs.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Service.inputManager.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hitInfo, 500f)) 
         {
             Vector3 hitPoint = hitInfo.point;
