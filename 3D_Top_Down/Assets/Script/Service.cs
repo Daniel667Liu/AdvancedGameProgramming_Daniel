@@ -9,6 +9,7 @@ public static class Service
     public static playerController playerController;
     public static gameManager gameManager;
     public static animController animController;
+    public static collectableManager collectableManager;
     public static void ServiceInitialize ()
     {
         animController = new animController();
