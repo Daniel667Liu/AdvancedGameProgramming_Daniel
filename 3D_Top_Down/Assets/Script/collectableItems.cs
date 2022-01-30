@@ -10,6 +10,7 @@ public class collectableItems : MonoBehaviour
         if (!(other.GetComponent<AIController>() == null)) 
         {
             Service.collectableManager.UpdateItemList(this);//remove collected item in the list
+            //other.GetComponent<AIController>().targetFinished = true;
             Service.aiManager.targetUpdate();//update target for all ai
             Destroy(this.gameObject);
         }

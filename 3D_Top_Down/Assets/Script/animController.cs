@@ -13,11 +13,11 @@ public class animController : MonoBehaviour
     private void Start()
     {
         rigidBody = GetComponentInChildren<Rigidbody>();//make sure there is only 1 rigidbody
-        Service.animController = this;
+        
     }
 
     // Update is called once per frame
-    public void UpdateManual()
+    void Update()
     {
         if (Service.inputManager.inputVector.magnitude > 0)
         {

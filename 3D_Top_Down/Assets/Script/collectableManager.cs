@@ -7,9 +7,10 @@ public class collectableManager
     // Start is called before the first frame update
     public List<collectableItems> itemsList;
     
-    void Start ()
+    public void Initialize ()
     {
-        
+        Service.collectableManager = this;
+        itemsList = new List<collectableItems>();
     }
 
     
@@ -17,21 +18,23 @@ public class collectableManager
 
     public void UpdateItemList(collectableItems collectedItem) //remove the collected items
     {
-        itemsList.Remove(collectedItem);
+        if (itemsList.Count > 1)
+        {
+            itemsList.Remove(collectedItem);
+        }
+        else 
+        {
+            itemsList.Clear();
+        }
     }
 
-    public List<Vector3> PositionCal() //return positions of items
-    {
-         List<Vector3> Positions = new List<Vector3>();
-        for (int i = 0; i < itemsList.Count; i++) 
-        {
-            Positions.Add(itemsList[i].GetComponent<Transform>().position);
-        }
-        return Positions;
-    }
+    
     // Update is called once per frame
-    void UpdateManual()
+    public void UpdateManual()
     {
-        
+        if (itemsList.Count < 1) 
+        {
+            Service.gameManager.is_AI_Tracking = false;
+        }
     }
 }

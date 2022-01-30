@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class inputManager : MonoBehaviour
+public class inputManager 
 {
     public Vector2 inputVector {  get; private set; }
     public Vector3 mousePosition { get; private set; }
     // Update is called once per frame
 
-    void start()
+    public void Initialize()
     {
         Service.inputManager = this;
     }

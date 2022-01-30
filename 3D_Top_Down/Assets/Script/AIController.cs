@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class AIController : MonoBehaviour
 {
-    private Vector3 targetPosition;
+    private collectableItems target;
+    [SerializeField]
+    private float speed;
+    //public bool targetFinished;
     public void targetChoose() //choose one of the items positions, randomly
     {
-        List<Vector3> Targets = Service.collectableManager.PositionCal();
+        List<collectableItems> Targets = Service.collectableManager.itemsList;
         int i = Random.Range(0, Targets.Count);
-        targetPosition = Targets[i];
+        target = Targets[i];
+        Debug.Log(target.gameObject.transform.position);
     }
 
-    public void trackTarget(Vector3 target) //translate ai to the target position
+    public void trackTarget(collectableItems target) //translate ai to the target position
     {
-        this.gameObject.transform.Translate(target);
+        
+            Vector3 dir = (target.gameObject.transform.position - transform.position).normalized;
+            transform.position += dir * speed * Time.deltaTime;
+        
+        
+    
+        
     }
 
 
@@ -27,6 +37,6 @@ public class AIController : MonoBehaviour
     // Update is called once per frame
     public void UpdateManual()
     {
-        trackTarget(targetPosition);
+        trackTarget(target);
     }
 }

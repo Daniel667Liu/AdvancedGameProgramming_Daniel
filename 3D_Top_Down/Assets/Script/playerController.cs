@@ -20,11 +20,11 @@ public class playerController : MonoBehaviour
 
     void Start()
     {
-        Service.playerController = this;
+        
     }
 
     // Update is called once per frame
-    public void UpdateManual()
+    void Update()
     {
         Vector3 moveVector = new Vector3(Service.inputManager.inputVector.x, 0f, Service.inputManager.inputVector.y);
         

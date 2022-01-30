@@ -11,18 +11,22 @@ public class gameManager : MonoBehaviour
     private collectableItems itemPrefab;
     public GameObject[] aiSpawnPoint;
     public GameObject[] itemSpawnPoint;
+    [HideInInspector]
+    public bool is_AI_Tracking=true;
     // Start is called before the first frame update
     private void Awake()
     {
-        Service.gameManager = this;
         Service.ServiceInitialize();
-        spawnAI();
-        spawnItem();
+        Service.gameManager = this;
+        Service.ServiceStart();
+        
     }
 
     void Start()
     {
         
+        spawnItem();
+        spawnAI();
     }
 
     // Update is called once per frame
@@ -30,17 +34,22 @@ public class gameManager : MonoBehaviour
     {
         
         Service.inputManager.UpdateManual();
-        Service.playerController.UpdateManual();
-        Service.animController.UpdateManual();
-        Service.aiManager.UpdateManual();
-        
-    }
+        Service.collectableManager.UpdateManual();
 
-    void spawnAI() //spawn ai at every point
+        if (is_AI_Tracking)
+        {
+
+            Service.aiManager.UpdateManual();
+        }
+
+        }
+
+        void spawnAI() //spawn ai at every point
     {
-        AIController spawnedAI = new AIController();
+        
         for (int i = 0; i < aiSpawnPoint.Length; i++) 
         {
+            AIController spawnedAI ;
             spawnedAI = Instantiate(aiPrefab, aiSpawnPoint[i].transform) as AIController;//spawn the ai
             Service.aiManager.AIs.Add(spawnedAI);//add spawned ai into the list in AImanager
         }
@@ -48,9 +57,10 @@ public class gameManager : MonoBehaviour
 
     void spawnItem() 
     {
-        collectableItems spawnedItem = new collectableItems();
+       
         for (int i = 0; i < itemSpawnPoint.Length; i++) 
         {
+            collectableItems spawnedItem ;
             spawnedItem = Instantiate(itemPrefab, itemSpawnPoint[i].transform) as collectableItems;//spawn the item
             Service.collectableManager.itemsList.Add(spawnedItem);//add spawned itmes into list in collectableManager
         }

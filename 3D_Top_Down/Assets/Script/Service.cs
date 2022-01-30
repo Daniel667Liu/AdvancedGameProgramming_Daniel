@@ -6,20 +6,27 @@ public static class Service
 {
     
     public static inputManager inputManager;
-    public static playerController playerController;
+    
     public static gameManager gameManager;
-    public static animController animController;
+    
     public static collectableManager collectableManager;
     public static AIManager aiManager;
-    public static void ServiceInitialize ()
+    public static void ServiceInitialize()
     {
+        
         aiManager = new AIManager();
-        animController = new animController();
-        gameManager = new gameManager();
+        collectableManager = new collectableManager();
+        //gameManager = new gameManager();
         inputManager = new inputManager();
-        playerController = new playerController();
+
     }
 
+    public static void ServiceStart() 
+    {
+        aiManager.Initialize();
+        collectableManager.Initialize();
+        inputManager.Initialize();
+    }
     
     
 }
