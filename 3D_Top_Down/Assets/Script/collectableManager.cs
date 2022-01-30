@@ -2,26 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class collectableManager :MonoBehaviour
+public class collectableManager 
 {
     // Start is called before the first frame update
     public List<collectableItems> itemsList;
-    private collectableItems[] itemsArray;
+    
     void Start ()
     {
-        Service.collectableManager = this;
-        itemsArray = FindItems();
-        for (int i = 0; i <itemsArray.Length; i++) 
-        {
-            itemsList.Add(itemsArray[i]);
-        }
+        
     }
 
-    private collectableItems[] FindItems() 
-    {
-        return FindObjectsOfType<collectableItems>();
-       
-    }
+    
+    
 
     public void UpdateItemList(collectableItems collectedItem) //remove the collected items
     {

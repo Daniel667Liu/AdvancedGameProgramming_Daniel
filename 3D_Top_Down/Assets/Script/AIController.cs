@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class AIController : MonoBehaviour
 {
-    public Vector3 targetChoose() 
+    private Vector3 targetPosition;
+    public void targetChoose() //choose one of the items positions, randomly
     {
         List<Vector3> Targets = Service.collectableManager.PositionCal();
         int i = Random.Range(0, Targets.Count);
-        return Targets[i];
+        targetPosition = Targets[i];
     }
 
-    public void trackTarget(Vector3 target) 
+    public void trackTarget(Vector3 target) //translate ai to the target position
     {
         this.gameObject.transform.Translate(target);
     }
@@ -20,12 +21,12 @@ public class AIController : MonoBehaviour
  
     void Start()
     {
-        
+        targetChoose();
     }
 
     // Update is called once per frame
-    void Update()
+    public void UpdateManual()
     {
-        
+        trackTarget(targetPosition);
     }
 }

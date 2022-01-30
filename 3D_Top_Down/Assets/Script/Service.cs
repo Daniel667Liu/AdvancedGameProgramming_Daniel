@@ -10,8 +10,10 @@ public static class Service
     public static gameManager gameManager;
     public static animController animController;
     public static collectableManager collectableManager;
+    public static AIManager aiManager;
     public static void ServiceInitialize ()
     {
+        aiManager = new AIManager();
         animController = new animController();
         gameManager = new gameManager();
         inputManager = new inputManager();
