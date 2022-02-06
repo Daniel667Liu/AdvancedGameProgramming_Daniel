@@ -65,4 +65,11 @@ public class gameManager : MonoBehaviour
             Service.collectableManager.itemsList.Add(spawnedItem);//add spawned itmes into list in collectableManager
         }
     }
+
+    private void OnDestroy()//unregister all listeners from sub system when destroy
+    {
+        Service.aiManager.Ondestroy();
+        Service.collectableManager.Ondestroy();
+        Service.scoreManager.Ondestroy();
+    }
 }

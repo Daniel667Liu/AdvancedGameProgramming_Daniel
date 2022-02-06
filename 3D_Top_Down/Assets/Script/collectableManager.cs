@@ -11,9 +11,14 @@ public class collectableManager
     {
         Service.collectableManager = this;
         itemsList = new List<collectableItems>();
+        EventManager.RegisterListener("Scored",Scored);
     }
 
-    
+    void Scored() 
+    {
+        Debug.Log("scored form item");
+       
+    }
     
 
     public void UpdateItemList(collectableItems collectedItem) //remove the collected items
@@ -36,5 +41,10 @@ public class collectableManager
         {
             Service.gameManager.is_AI_Tracking = false;
         }
+    }
+
+    public void Ondestroy() 
+    {
+        EventManager.UnregisterListener("Scored", Scored);
     }
 }

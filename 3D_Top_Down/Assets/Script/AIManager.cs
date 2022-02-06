@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class AIManager
 {
+  
     public List<AIController> AIs;
     // Start is called before the first frame update
     public void Initialize()
     {
         Service.aiManager = this;
         AIs = new List<AIController>();
+        
     }
-
+    
     public void targetUpdate() 
     {
         if (Service.collectableManager.itemsList.Count > 1)
@@ -40,6 +42,11 @@ public class AIManager
         {
             AIs[i].UpdateManual();
         }
+    }
+
+    public void Ondestroy() 
+    {
+        
     }
 }
     
