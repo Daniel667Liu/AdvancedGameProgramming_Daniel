@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class collectableItems : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     private void OnTriggerEnter(Collider other)
     {
         if (!(other.GetComponent<AIController>() == null)) 
