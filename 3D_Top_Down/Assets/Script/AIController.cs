@@ -27,9 +27,9 @@ public class AIController : MonoBehaviour
         
     }
 
-    public void chooseTeam()
+    public void chooseTeam(int teamCode)
     {
-        teamNumber = (int)(Random.Range(0f, 2f));
+        teamNumber = teamCode;
     }
 
     public void destroySelf() 
@@ -40,7 +40,7 @@ public class AIController : MonoBehaviour
     void Start()
     {
         targetChoose();
-        chooseTeam();
+        //chooseTeam();
         Debug.Log(teamNumber);
     }
 

@@ -38,7 +38,7 @@ public class collectableItems : MonoBehaviour
             
         }
 
-        Debug.Log("red: " + Service.scoreManager.redScore + " blue: " + Service.scoreManager.blueScore);
+       // Debug.Log("red: " + Service.scoreManager.redScore + " blue: " + Service.scoreManager.blueScore);
     }
 
    

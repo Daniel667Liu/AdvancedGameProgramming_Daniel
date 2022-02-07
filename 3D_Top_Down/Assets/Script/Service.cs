@@ -12,12 +12,13 @@ public static class Service
     public static collectableManager collectableManager;
     public static AIManager aiManager;
     public static ScoreManager scoreManager;
+    
    // public static EventManager eventManager;
     public static void ServiceInitialize()
     {
         scoreManager = new ScoreManager();
         collectableManager = new collectableManager();
-
+        gameManager = new gameManager();
         aiManager = new AIManager();
         //gameManager = new gameManager();
         inputManager = new inputManager();
@@ -32,8 +33,17 @@ public static class Service
         collectableManager.Initialize();
         inputManager.Initialize();
         scoreManager.Initialize();
+        gameManager.Initialize();
+        
        
     }
-    
+
+    public static void ServiceUpdate() 
+    {
+        aiManager.UpdateManual();
+        collectableManager.UpdateManual();
+        inputManager.UpdateManual();
+        gameManager.UpdateManual();
+    }
     
 }
