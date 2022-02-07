@@ -18,5 +18,6 @@ public class inputManager
         float v = Input.GetAxis("Vertical");
         inputVector = new Vector2(h, v);//get the game input every frame
         mousePosition = Input.mousePosition;
+        
     }
 }

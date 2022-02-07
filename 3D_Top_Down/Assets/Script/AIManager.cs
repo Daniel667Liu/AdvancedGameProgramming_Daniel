@@ -4,14 +4,39 @@ using UnityEngine;
 
 public class AIManager
 {
+    private AIController aiPrefab; 
     public List<AIController> AIs;
+    
     // Start is called before the first frame update
     public void Initialize()
     {
         Service.aiManager = this;
         AIs = new List<AIController>();
+        aiPrefab = GameObject.FindObjectOfType<AIController>();
+        
     }
 
+    public void spawnAI() //spawn ai at every point
+    {
+        //Debug.Log("spawn ai");
+        for (int i = 0; i < 5; i++)
+        {
+            Vector3 AiPosition = new Vector3(Random.Range(-23, 23), 1, Random.Range(-23, 23));
+            Quaternion rotation = new Quaternion(0, 0, 0, 0);
+            AIController spawnedAI;
+            spawnedAI = GameObject.Instantiate(aiPrefab, AiPosition, rotation) as AIController;//spawn the ai
+            if (i < 4)
+            {
+                spawnedAI.chooseTeam(0);
+            }
+            else 
+            {
+                spawnedAI.chooseTeam(1);
+            }
+                
+            Service.aiManager.AIs.Add(spawnedAI);//add spawned ai into the list in AImanager
+        }
+    }
     public void targetUpdate() 
     {
         if (Service.collectableManager.itemsList.Count > 1)
@@ -36,10 +61,21 @@ public class AIManager
     // Update is called once per frame
     public void UpdateManual()
     {
+        
         for (int i = 0; i < AIs.Count; i++)
         {
             AIs[i].UpdateManual();
         }
+    }
+
+    public void Ondestroy() 
+    {
+        for (int i = 0; i < AIs.Count; i++) 
+        {
+            AIs[i].destroySelf();
+            
+        }
+        AIs.Clear();
     }
 }
     

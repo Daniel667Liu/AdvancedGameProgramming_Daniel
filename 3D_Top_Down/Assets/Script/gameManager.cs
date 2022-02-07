@@ -2,39 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class gameManager : MonoBehaviour
+public class gameManager 
 {
 
     [SerializeField]
     private AIController aiPrefab;
     [SerializeField]
     private collectableItems itemPrefab;
-    public GameObject[] aiSpawnPoint;
-    public GameObject[] itemSpawnPoint;
+   
     [HideInInspector]
-    public bool is_AI_Tracking=true;
+    public bool is_AI_Tracking = true;
     // Start is called before the first frame update
-    private void Awake()
+    public void Initialize()
     {
-        Service.ServiceInitialize();
+        
         Service.gameManager = this;
-        Service.ServiceStart();
+        Debug.Log("gamanager initialize");
+        aiPrefab =  GameObject.FindObjectOfType<AIController>();
+        itemPrefab = GameObject.FindObjectOfType<collectableItems>();
+    }
+    public void spawn()
+    {
+        Service.aiManager.spawnAI();
+        Service.collectableManager.spawnItem();
         
     }
-
+    
     void Start()
     {
         
-        spawnItem();
-        spawnAI();
+       
     }
 
     // Update is called once per frame
-    void Update()
+    public void UpdateManual()
     {
+       
         
-        Service.inputManager.UpdateManual();
-        Service.collectableManager.UpdateManual();
 
         if (is_AI_Tracking)
         {
@@ -44,25 +48,15 @@ public class gameManager : MonoBehaviour
 
         }
 
-        void spawnAI() //spawn ai at every point
-    {
-        
-        for (int i = 0; i < aiSpawnPoint.Length; i++) 
-        {
-            AIController spawnedAI ;
-            spawnedAI = Instantiate(aiPrefab, aiSpawnPoint[i].transform) as AIController;//spawn the ai
-            Service.aiManager.AIs.Add(spawnedAI);//add spawned ai into the list in AImanager
-        }
-    }
+    
 
-    void spawnItem() 
+    
+
+
+    private void OnDestroy()//unregister all listeners from sub system when destroy
     {
-       
-        for (int i = 0; i < itemSpawnPoint.Length; i++) 
-        {
-            collectableItems spawnedItem ;
-            spawnedItem = Instantiate(itemPrefab, itemSpawnPoint[i].transform) as collectableItems;//spawn the item
-            Service.collectableManager.itemsList.Add(spawnedItem);//add spawned itmes into list in collectableManager
-        }
+        Service.aiManager.Ondestroy();
+        Service.collectableManager.Ondestroy();
+        Service.scoreManager.Ondestroy();
     }
 }
