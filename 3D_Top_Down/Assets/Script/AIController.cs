@@ -32,6 +32,11 @@ public class AIController : MonoBehaviour
         teamNumber = (int)(Random.Range(0f, 2f));
     }
 
+    public void destroySelf() 
+    {
+        Destroy(this.gameObject);
+    }
+
     void Start()
     {
         targetChoose();

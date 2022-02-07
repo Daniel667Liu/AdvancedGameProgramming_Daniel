@@ -46,5 +46,10 @@ public class collectableManager
     public void Ondestroy() 
     {
         EventManager.UnregisterListener("Scored", Scored);
+        for (int i = 0; i < itemsList.Count; i++) 
+        {
+            itemsList[i].destroySelf();
+        }
+        itemsList.Clear();
     }
 }

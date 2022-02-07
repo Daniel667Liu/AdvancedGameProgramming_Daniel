@@ -46,7 +46,11 @@ public class AIManager
 
     public void Ondestroy() 
     {
-        
+        for (int i = 0; i < AIs.Count; i++) 
+        {
+            AIs[i].destroySelf();
+            AIs.Clear();
+        }
     }
 }
     

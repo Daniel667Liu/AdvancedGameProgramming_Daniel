@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class collectableItems : MonoBehaviour
 {
-    
+    public void destroySelf() 
+    {
+        Destroy(this.gameObject);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (!(other.GetComponent<AIController>() == null)) 

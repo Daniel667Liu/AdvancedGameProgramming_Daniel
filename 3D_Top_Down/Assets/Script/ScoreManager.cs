@@ -30,5 +30,7 @@ public class ScoreManager
     {
         EventManager.UnregisterListener("redScored", redScored);
         EventManager.UnregisterListener("blueScored", blueScored);
+        redScore = 0;
+        blueScore = 0;
     }
 }
