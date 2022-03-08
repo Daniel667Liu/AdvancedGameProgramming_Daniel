@@ -68,27 +68,31 @@ public class HummingbirdAgent : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        if (nearestFlower = null) 
+        if (nearestFlower == null) 
         {
+            Debug.Log("no nearest flower found");
             sensor.AddObservation(new float[10]);
             return;
         }
 
-        sensor.AddObservation(transform.localRotation.normalized);
+        sensor.AddObservation(transform.localRotation.normalized);//4 size, quaternion
 
 
         //direction to the flower
         Vector3 toFlower = nearestFlower.FlowerCenterPosition - beakTip.position;
-        sensor.AddObservation(toFlower.normalized);
+        sensor.AddObservation(toFlower.normalized);//3 size
 
         //bird face to the flower or not
         sensor.AddObservation(Vector3.Dot(toFlower.normalized, -nearestFlower.FlowerUpVector.normalized));
+        //float, 1 size
 
         //beap face to the flower or not
         sensor.AddObservation(Vector3.Dot(beakTip.forward.normalized, -nearestFlower.FlowerUpVector.normalized));
+        //float, 1 size
 
         //realative distance between from beap to flower
         sensor.AddObservation(toFlower.magnitude / FlowerManager.AreaDiameter);//areaDiameter is size of the whole island
+        //float 1 size
     }
 
     // ***unfinished***
@@ -104,15 +108,56 @@ public class HummingbirdAgent : Agent
         float yawChange = actions.ContinuousActions[4];
 
         smoothPitchChange = Mathf.MoveTowards(smoothPitchChange, pitchChange, 2f * Time.deltaTime);
+        smoothYawChange = Mathf.MoveTowards(smoothYawChange, yawChange, 2f * Time.fixedDeltaTime);
 
         float pitch = rotationVector.x + smoothPitchChange * Time.fixedDeltaTime * pitchSpeed;
-        if (pitch > 180f) pitch -= 360f;
+        if (pitch > 180f) 
+            pitch -= 360f;
         pitch = Mathf.Clamp(pitch, -MaxPitchAngle, MaxPitchAngle);
+
+        float yaw = rotationVector.y + smoothYawChange * Time.fixedDeltaTime;
+
+        transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        
+
+        Vector3 forward = Vector3.zero;
+        Vector3 left = Vector3.zero;
+        Vector3 up = Vector3.zero;
+        float pitch = 0;
+        float yaw = 0;
+
+        if (Input.GetKey(KeyCode.W)) forward = transform.forward;
+        else if (Input.GetKey(KeyCode.S)) forward = -transform.forward;
+
+        if (Input.GetKey(KeyCode.A)) left = -transform.right;
+        else if (Input.GetKey(KeyCode.D)) left = transform.right;
+
+        if (Input.GetKey(KeyCode.E)) up = transform.up;
+        else if (Input.GetKey(KeyCode.Q)) up = -transform.up;
+
+        if (Input.GetKey(KeyCode.UpArrow)) pitch = 1f;
+        else if (Input.GetKey(KeyCode.DownArrow))pitch = -1f;
+
+        if (Input.GetKey(KeyCode.LeftArrow)) yaw = -1f;
+        else if (Input.GetKey(KeyCode.RightArrow)) yaw = 1f;
+
+        Vector3 movement = (forward + left + up).normalized;
+
+        var continuousActionsOut = actionsOut.ContinuousActions;
+        //get variables that can be overrided from the actionOut
+
+
+        //add 3 movement value, pitch, and yaw to the actionOut array to override
+        continuousActionsOut[0] = movement.x;
+        continuousActionsOut[1] = movement.y;
+        continuousActionsOut[2] = movement.z;
+        continuousActionsOut[3] = pitch;
+        continuousActionsOut[4] = yaw;
+
+
     }
 
     //move the agent to a safe position, inside the boundary wihtut touching rocks or bushes
@@ -249,7 +294,14 @@ public class HummingbirdAgent : Agent
 
     private void Update()
     {
-      
+        if(nearestFlower != null)
+            Debug.DrawLine(beakTip.position, nearestFlower.FlowerCenterPosition, Color.green);
+    }
+
+    private void FixedUpdate()
+    {
+        if (nearestFlower != null && !nearestFlower.HasNectar)
+            UpdateNearestFlower();
     }
 
 }
