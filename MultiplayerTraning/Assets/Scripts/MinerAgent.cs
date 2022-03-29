@@ -77,11 +77,11 @@ public class MinerAgent : Agent
 	}
 	public override void CollectObservations(VectorSensor sensor)
 	{
-		sensor.AddObservation(rB.velocity);
+		sensor.AddObservation(rB.velocity);//vector 3, 3spaces.
 
-		sensor.AddObservation(dashing);
-		sensor.AddObservation(dashingTimer / dashingTimerTotal);
-		sensor.AddObservation(dashCDTimer / dashCDTimerTotal);
+		sensor.AddObservation(dashing);//bool, 1space.
+		sensor.AddObservation(dashingTimer / dashingTimerTotal);//float 1 space
+		sensor.AddObservation(dashCDTimer / dashCDTimerTotal);//float 1 space
 	}
 
 	//set how and when the ai can recieve actions from specific action branch
