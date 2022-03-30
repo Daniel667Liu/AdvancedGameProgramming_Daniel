@@ -251,18 +251,23 @@ MonoBehaviour:
   - {fileID: 3697176972074398572}
   - {fileID: 3697176971816492255}
   gameAgents:
+  - {fileID: 6943373400924298321}
+  - {fileID: 7684301409266182796}
   - {fileID: 1238011044651533446}
   - {fileID: 1238011044977936471}
   - {fileID: 1238011043498834228}
-  - {fileID: 1238011044732890123}
-  - {fileID: 1238011043759059496}
-  - {fileID: 1238011044868789407}
-  - {fileID: 2420004396211956513}
   - {fileID: 8865141031033848981}
-  - {fileID: 6943373400924298321}
-  - {fileID: 7684301409266182796}
+  - {fileID: 2420004396211956513}
+  - {fileID: 1238011044732890123}
+  - {fileID: 1238011044868789407}
+  - {fileID: 1238011043759059496}
+  gameAgents_TeamBlue: []
+  gameAgents_TeamRed: []
+  redScore: 0
+  blueScore: 0
   tX_RedScore: {fileID: 3697176972988958524}
   tX_BlueScore: {fileID: 3697176971702969220}
+  gameBeign: 0
 --- !u!1 &3697176971816492254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,6 +1613,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3697176971732016615}
     m_Modifications:
     - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: dashColor.b
       value: 58950532
       objectReference: {fileID: 0}
@@ -1618,6 +1627,10 @@ PrefabInstance:
     - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: dashColor.r
       value: 804253700
+      objectReference: {fileID: 0}
+    - target: {fileID: 5812936488354380592, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5812936488354380592, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1675,6 +1688,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7046818471060070250, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299724008313116892, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8984902899572678154, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: TeamId
       value: 1
@@ -1704,7 +1725,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 285094083769972622}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19e791fc731d0bb4ab99d9851512a195, type: 3}
   m_Name: 
@@ -1717,6 +1738,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3697176971732016615}
     m_Modifications:
     - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: dashColor.b
       value: 58950532
       objectReference: {fileID: 0}
@@ -1727,6 +1752,10 @@ PrefabInstance:
     - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: dashColor.r
       value: 804253700
+      objectReference: {fileID: 0}
+    - target: {fileID: 5812936488354380592, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5812936488354380592, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1796,6 +1825,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7046818471060070250, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299724008313116892, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8984902899572678154, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: TeamId
       value: 1
@@ -1825,7 +1862,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 3697176972052442759}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19e791fc731d0bb4ab99d9851512a195, type: 3}
   m_Name: 
@@ -1838,6 +1875,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3697176971732016615}
     m_Modifications:
     - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: dashColor.b
       value: 785404
       objectReference: {fileID: 0}
@@ -1848,6 +1889,10 @@ PrefabInstance:
     - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: dashColor.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5812936488354380592, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5812936488354380592, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1901,6 +1946,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7046818471060070250, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299724008313116892, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8984902899572678154, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: m_Model
       value: 
@@ -1926,7 +1979,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 3697176972312864155}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19e791fc731d0bb4ab99d9851512a195, type: 3}
   m_Name: 
@@ -1939,6 +1992,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3697176971732016615}
     m_Modifications:
     - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: dashColor.b
       value: 785404
       objectReference: {fileID: 0}
@@ -1949,6 +2006,10 @@ PrefabInstance:
     - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: dashColor.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5812936488354380592, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5812936488354380592, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2002,6 +2063,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7046818471060070250, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299724008313116892, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8984902899572678154, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: m_Model
       value: 
@@ -2027,7 +2096,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 3697176972714038520}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19e791fc731d0bb4ab99d9851512a195, type: 3}
   m_Name: 
@@ -2040,6 +2109,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3697176971732016615}
     m_Modifications:
     - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: dashColor.b
       value: 785404
       objectReference: {fileID: 0}
@@ -2050,6 +2123,10 @@ PrefabInstance:
     - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: dashColor.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5812936488354380592, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5812936488354380592, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2103,6 +2180,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7046818471060070250, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299724008313116892, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8984902899572678154, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: m_Model
       value: 
@@ -2123,7 +2208,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 3697176972972218409}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19e791fc731d0bb4ab99d9851512a195, type: 3}
   m_Name: 
@@ -2141,6 +2226,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3697176971732016615}
     m_Modifications:
     - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: dashColor.b
       value: 58950532
       objectReference: {fileID: 0}
@@ -2151,6 +2240,10 @@ PrefabInstance:
     - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: dashColor.r
       value: 804253700
+      objectReference: {fileID: 0}
+    - target: {fileID: 5812936488354380592, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5812936488354380592, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2220,6 +2313,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7046818471060070250, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299724008313116892, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8984902899572678154, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: TeamId
       value: 1
@@ -2249,7 +2350,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 3697176973024702628}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19e791fc731d0bb4ab99d9851512a195, type: 3}
   m_Name: 
@@ -2262,6 +2363,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3697176971732016615}
     m_Modifications:
     - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: dashColor.b
       value: 58950532
       objectReference: {fileID: 0}
@@ -2272,6 +2377,10 @@ PrefabInstance:
     - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: dashColor.r
       value: 804253700
+      objectReference: {fileID: 0}
+    - target: {fileID: 5812936488354380592, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5812936488354380592, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2329,6 +2438,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7046818471060070250, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299724008313116892, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8984902899572678154, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: TeamId
       value: 1
@@ -2358,7 +2475,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 3697176973158533168}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19e791fc731d0bb4ab99d9851512a195, type: 3}
   m_Name: 
@@ -2371,6 +2488,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3697176971732016615}
     m_Modifications:
     - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: dashColor.b
       value: 785404
       objectReference: {fileID: 0}
@@ -2381,6 +2502,10 @@ PrefabInstance:
     - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: dashColor.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5812936488354380592, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5812936488354380592, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2434,6 +2559,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7046818471060070250, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299724008313116892, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8984902899572678154, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: m_Model
       value: 
@@ -2459,7 +2592,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 4772302608851878142}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19e791fc731d0bb4ab99d9851512a195, type: 3}
   m_Name: 
@@ -2472,6 +2605,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3697176971732016615}
     m_Modifications:
     - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: dashColor.b
       value: 785404
       objectReference: {fileID: 0}
@@ -2482,6 +2619,10 @@ PrefabInstance:
     - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: dashColor.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5812936488354380592, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5812936488354380592, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2535,6 +2676,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7046818471060070250, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299724008313116892, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8984902899572678154, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: m_Model
       value: 
@@ -2560,7 +2709,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 5243687265274459683}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19e791fc731d0bb4ab99d9851512a195, type: 3}
   m_Name: 
@@ -2573,6 +2722,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3697176971732016615}
     m_Modifications:
     - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: dashColor.b
       value: 58950532
       objectReference: {fileID: 0}
@@ -2583,6 +2736,10 @@ PrefabInstance:
     - target: {fileID: 2477347728556055727, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: dashColor.r
       value: 804253700
+      objectReference: {fileID: 0}
+    - target: {fileID: 5812936488354380592, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5812936488354380592, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2640,6 +2797,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7046818471060070250, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299724008313116892, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8984902899572678154, guid: 6b9b784f688b5f641b813a603a082c7d, type: 3}
       propertyPath: TeamId
       value: 1
@@ -2669,7 +2834,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 6441836791178139706}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19e791fc731d0bb4ab99d9851512a195, type: 3}
   m_Name: 

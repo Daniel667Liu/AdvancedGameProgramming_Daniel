@@ -28,18 +28,18 @@ public class GameGroup : MonoBehaviour
     float goldTimerTotal = 3;
 
     //declare ai teams
-    private SimpleMultiAgentGroup m_BlueAgentGroup;
-    private SimpleMultiAgentGroup m_RedAgentGroup;
+    public SimpleMultiAgentGroup m_BlueAgentGroup;
+    public SimpleMultiAgentGroup m_RedAgentGroup;
 
     [SerializeField]
-    List<MinerAgent> gameAgents;
-    List<MinerAgent> gameAgents_TeamBlue = new List<MinerAgent>();
-    List<MinerAgent> gameAgents_TeamRed = new List<MinerAgent>();
+    public List<MinerAgent> gameAgents;
+    public List<MinerAgent> gameAgents_TeamBlue = new List<MinerAgent>();
+    public List<MinerAgent> gameAgents_TeamRed = new List<MinerAgent>();
 
 
     //current scores
-    int redScore = 0;
-    int blueScore = 0;
+    public int redScore = 0;
+    public int blueScore = 0;
 
     [SerializeField]
     TextMeshPro tX_RedScore;
@@ -51,6 +51,7 @@ public class GameGroup : MonoBehaviour
     public delegate void Event_GoalScored(int teamIDScored);
     public Event_GoalScored event_GoalScored;
 
+    public bool gameBeign = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +63,7 @@ public class GameGroup : MonoBehaviour
         //add listener to GoalScored event
         event_GoalScored += OnGoalScored;
 
+        
         foreach (MinerAgent agent in gameAgents)
         {
             if (agent.GetComponent<BehaviorParameters>().TeamId == 0)//which is blue team
@@ -75,6 +77,7 @@ public class GameGroup : MonoBehaviour
                 gameAgents_TeamRed.Add(agent);
             }
         }
+        
 
         ResetScene();
     }
@@ -86,51 +89,55 @@ public class GameGroup : MonoBehaviour
 
     void FixedUpdate()
     {
-        currentEnvironmentStep += 1;
-        if (currentEnvironmentStep >= MaxEnvironmentSteps && MaxEnvironmentSteps > 0)
-           
+        if (gameBeign) 
         {
-            //game is over, calculat the result
-            if (blueScore > redScore)//blue wins
+            currentEnvironmentStep += 1;
+            if (currentEnvironmentStep >= MaxEnvironmentSteps && MaxEnvironmentSteps > 0)
+
             {
-                m_BlueAgentGroup.AddGroupReward(1f);
-                m_RedAgentGroup.SetGroupReward(-1f);
-                //use SetGroupReward rather than AddGroupReward
-                //use final reward to replace the reward gained by agents
-                m_BlueAgentGroup.EndGroupEpisode();
-                m_RedAgentGroup.EndGroupEpisode();
-            }
-            else if (blueScore < redScore)
-            {
-                //red team win 
-                m_RedAgentGroup.AddGroupReward(1f);
-                m_BlueAgentGroup.SetGroupReward(-1f);
-                m_BlueAgentGroup.EndGroupEpisode();
-                m_RedAgentGroup.EndGroupEpisode();
+                //game is over, calculat the result
+                if (blueScore > redScore)//blue wins
+                {
+                    m_BlueAgentGroup.AddGroupReward(1f);
+                    m_RedAgentGroup.SetGroupReward(-1f);
+                    //use SetGroupReward rather than AddGroupReward
+                    //use final reward to replace the reward gained by agents
+                    m_BlueAgentGroup.EndGroupEpisode();
+                    m_RedAgentGroup.EndGroupEpisode();
+                }
+                else if (blueScore < redScore)
+                {
+                    //red team win 
+                    m_RedAgentGroup.AddGroupReward(1f);
+                    m_BlueAgentGroup.SetGroupReward(-1f);
+                    m_BlueAgentGroup.EndGroupEpisode();
+                    m_RedAgentGroup.EndGroupEpisode();
+                }
+                else
+                {
+                    //draw game
+                    //set rewards to both team to be 0
+                    m_RedAgentGroup.SetGroupReward(0);
+                    m_BlueAgentGroup.SetGroupReward(0);
+                    m_BlueAgentGroup.EndGroupEpisode();
+                    m_RedAgentGroup.EndGroupEpisode();
+                }
+
+                //after result calculation, reset scene
+                ResetScene();
             }
             else
+            //when the game is still runing 
             {
-                //draw game
-                //set rewards to both team to be 0
-                m_RedAgentGroup.SetGroupReward(0);
-                m_BlueAgentGroup.SetGroupReward(0);
-                m_BlueAgentGroup.EndGroupEpisode();
-                m_RedAgentGroup.EndGroupEpisode();
+                m_BlueAgentGroup.AddGroupReward(-0.0002f / (blueScore + 1));
+                m_RedAgentGroup.AddGroupReward(-0.0002f / (redScore + 1));
             }
-
-            //after result calculation, reset scene
-            ResetScene();
         }
-		else
-        //when the game is still runing 
-        {
-            m_BlueAgentGroup.AddGroupReward(-0.0002f / (blueScore + 1));
-            m_RedAgentGroup.AddGroupReward(-0.0002f / (redScore + 1));
-        }
+        
     }
 
 
-	void ResetScene()
+	public void ResetScene()
     {
         //reset environment
         currentEnvironmentStep = 0;
