@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 872b5fd526707694b973671c4c1ccc32, type: 3}
+  m_Name: agent 5
+  m_EditorClassIdentifier: 
+  Color: {r: 1, g: 0, b: 0, a: 0}
+  red: {r: 1, g: 0, b: 0, a: 0}
+  blue: {r: 0, g: 0.047595024, b: 1, a: 0}
+  Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  Cube: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  Sphere: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  teamID: 1
+  initial_X: 9
