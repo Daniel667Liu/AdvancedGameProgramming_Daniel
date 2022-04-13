@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+
 [CreateAssetMenu(fileName ="agent")]
 public class Agent : ScriptableObject
 {
@@ -14,6 +15,7 @@ public class Agent : ScriptableObject
     public Mesh Sphere;
     public int teamID;
     public float initial_X;
+   
 
     public void changToCube() 
     {
@@ -27,4 +29,6 @@ public class Agent : ScriptableObject
         Mesh = Sphere;
         Color = red;
     }
+
+   
 }
