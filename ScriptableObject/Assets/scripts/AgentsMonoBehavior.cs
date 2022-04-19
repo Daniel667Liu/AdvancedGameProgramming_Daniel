@@ -9,18 +9,20 @@ public class AgentsMonoBehavior : MonoBehaviour
     public int teamID;
     public Mesh initialMesh;
     public Color initialColor;
-    //public float speed;
+    public float speed;
     private bool isCD = false;
     private Material mat;
     private BehaviorTree.Tree<AgentsMonoBehavior> _tree;
+    private UIController ui;
 
-    
+
     public void coolDown() 
     {
         isCD = true;
     }
     void Start()
     {
+        ui = FindObjectOfType<UIController>();
         mat = GetComponent<Renderer>().material;
         teamID = agent.teamID;
         //reset position based on scriptable object
@@ -80,26 +82,29 @@ public class AgentsMonoBehavior : MonoBehaviour
             }
         }
     }
-
+    
     public void moveUp()
     {
-        if (isCD == true) 
+       /* if (isCD == true) 
         {
             this.transform.Translate(new Vector3(0, 0, 0.5f), Space.World);
             isCD = false;
-        }
+        }*/
+        this.transform.Translate(Vector3.forward*speed*Time.deltaTime, Space.World);
     }
 
     
 
     public void moveDown() 
     {
+        /*
         if (isCD == true) 
         {
             this.transform.Translate(new Vector3(0, 0, -0.5f), Space.World);
             isCD = false;
 
-        }
+        }*/
+        this.transform.Translate(Vector3.back * speed * Time.deltaTime, Space.World);
     }
 
   
@@ -128,18 +133,23 @@ public class AgentsMonoBehavior : MonoBehaviour
         _tree.Update(this);
     }
 
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Wall")) 
         {
             if (teamID == 0)
             {
+                ui.team1Account += 1;
                 teamID = 1;
             }
             else 
             {
+                ui.team2Account += 1;
                 teamID = 0;
             }
         }
+        ui.updateUI();
+        this.speed = UnityEngine.Random.Range(8f, 15f);
     }
 }
