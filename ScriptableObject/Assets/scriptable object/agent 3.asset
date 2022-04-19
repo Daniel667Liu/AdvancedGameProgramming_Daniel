@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 872b5fd526707694b973671c4c1ccc32, type: 3}
   m_Name: agent 3
   m_EditorClassIdentifier: 
-  Color: {r: 0, g: 0, b: 0, a: 0}
-  red: {r: 1, g: 0, b: 0, a: 0}
-  blue: {r: 0, g: 0.047595024, b: 1, a: 0}
-  Mesh: {fileID: 0}
+  Color: {r: 0.6037736, g: 0.22732238, b: 0, a: 0}
+  red: {r: 0.38208342, g: 0, b: 1, a: 0}
+  blue: {r: 0.6037736, g: 0.22732238, b: 0, a: 0}
+  Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   Cube: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   Sphere: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   teamID: 1

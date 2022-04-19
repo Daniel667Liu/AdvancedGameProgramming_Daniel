@@ -9,7 +9,7 @@ public class AgentsMonoBehavior : MonoBehaviour
     public int teamID;
     public Mesh initialMesh;
     public Color initialColor;
-    //public float speed;
+    public float speed;
     private bool isCD = false;
     private Material mat;
     private BehaviorTree.Tree<AgentsMonoBehavior> _tree;
@@ -82,26 +82,29 @@ public class AgentsMonoBehavior : MonoBehaviour
             }
         }
     }
-
+    
     public void moveUp()
     {
-        if (isCD == true) 
+       /* if (isCD == true) 
         {
             this.transform.Translate(new Vector3(0, 0, 0.5f), Space.World);
             isCD = false;
-        }
+        }*/
+        this.transform.Translate(Vector3.forward*speed*Time.deltaTime, Space.World);
     }
 
     
 
     public void moveDown() 
     {
+        /*
         if (isCD == true) 
         {
             this.transform.Translate(new Vector3(0, 0, -0.5f), Space.World);
             isCD = false;
 
-        }
+        }*/
+        this.transform.Translate(Vector3.back * speed * Time.deltaTime, Space.World);
     }
 
   
@@ -147,5 +150,6 @@ public class AgentsMonoBehavior : MonoBehaviour
             }
         }
         ui.updateUI();
+        this.speed = UnityEngine.Random.Range(8f, 15f);
     }
 }

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 [System.Serializable]
 public class teamInfo
 {
+
     public string team1Name;
     public string team2Name;
     public int team1Account;
