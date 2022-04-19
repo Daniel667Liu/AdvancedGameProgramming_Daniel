@@ -13,14 +13,16 @@ public class AgentsMonoBehavior : MonoBehaviour
     private bool isCD = false;
     private Material mat;
     private BehaviorTree.Tree<AgentsMonoBehavior> _tree;
+    private UIController ui;
 
-    
+
     public void coolDown() 
     {
         isCD = true;
     }
     void Start()
     {
+        ui = FindObjectOfType<UIController>();
         mat = GetComponent<Renderer>().material;
         teamID = agent.teamID;
         //reset position based on scriptable object
@@ -128,18 +130,22 @@ public class AgentsMonoBehavior : MonoBehaviour
         _tree.Update(this);
     }
 
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Wall")) 
         {
             if (teamID == 0)
             {
+                ui.team1Account += 1;
                 teamID = 1;
             }
             else 
             {
+                ui.team2Account += 1;
                 teamID = 0;
             }
         }
+        ui.updateUI();
     }
 }
